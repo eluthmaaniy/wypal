@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terms of Use – Wypal</title>
+  <meta name="description" content="Read the Wypal Terms of Use. Understand your responsibilities, limitations, and acceptable use of the service." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { 
+            'sans': ['Kumbh Sans', 'system-ui', 'sans-serif'] 
+          },
+          colors: {
+            primary: { 
+              DEFAULT: '#FF5722', 
+              hover: '#E64A19', 
+              light: '#FF8A65' 
+            },
+            bg: { 
+              primary: '#FFFFFF', 
+              subtle: '#FAFAFA' 
+            },
+            border: '#E0E0E0',
+            text: { 
+              primary: '#212121', 
+              secondary: '#616161' 
+            },
+            success: '#4CAF50',
+            warning: '#FFC107',
+            error: '#F44336'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { 
+      font-family: 'Kumbh Sans', system-ui, sans-serif; 
+      font-size: 14px;
+      font-weight: 400;
+    }
+      
+    .container-max { 
+      max-width: 1200px; 
+    }
+
+    /* Smooth transitions */
+    * {
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+    }
+
+    button, a {
+      font-weight: 500;
+    }
+
+    /* Content spacing */
+    .terms-content h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #212121;
+    }
+
+    .dark .terms-content h2 {
+      color: #FFffff;
+    }
+
+    .terms-content p, .terms-content ul {
+      margin-bottom: 1rem;
+    }
+
+    .terms-content ul {
+      padding-left: 1.5rem;
+      list-style-type: disc;
+    }
+
+    .terms-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .terms-content strong {
+      color: #212121;
+    }
+
+    .dark .terms-content strong {
+      color: #FAFAFA;
+    }
+  </style>
+   
+  <script src="../js/theme.js"></script>
+</head>
+<body class="min-h-full bg-gradient-to-br from-bg-subtle via-white to-orange-50 dark:from-[#121212] dark:via-[#0a0a0a] dark:to-[#1a1410] text-text-primary dark:text-[#FAFAFA] overflow-x-hidden">
+   
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#181818]/95 border-b border-border dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="../" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-hover rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+            <i class="ri-brush-ai-fill text-white text-xl" aria-hidden="true"></i>
+          </div>
+          <div class="leading-tight">
+            <div class="text-lg font-extrabold bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">Wypal</div>
+            <div class="text-xs text-text-secondary font-medium">Plain. Clean. Clear.</div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/how-it-works" class="hover:text-primary transition-colors">How It Works</a>
+          <a href="/features" class="hover:text-primary transition-colors">Features</a>
+          <a href="/examples" class="hover:text-primary transition-colors">Examples</a>
+          <a href="/faq" class="hover:text-primary transition-colors">FAQ</a>
+          <a href="/contact" class="hover:text-primary transition-colors">Contact</a>
+
+          <!-- Theme Switcher -->
+          <div class="relative">
+            <button id="themeButton" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10">
+              <i class="ri-sun-line hidden" id="iconLight" aria-hidden="true"></i>
+              <i class="ri-moon-line hidden" id="iconDark" aria-hidden="true"></i>
+              <i class="ri-computer-line hidden" id="iconSystem" aria-hidden="true"></i>
+              <span id="themeLabel" class="text-sm">Theme</span>
+              <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </button>
+            <div id="themeMenu" class="absolute right-0 mt-2 w-40 bg-white dark:bg-[#242424] rounded-lg shadow-xl border border-border dark:border-white/10 hidden overflow-hidden">
+              <button data-theme="light" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">Light</button>
+              <button data-theme="dark" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">Dark</button>
+              <button data-theme="system" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">System</button>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center gap-2">
+          <button id="mobileTheme" class="p-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10" aria-label="Toggle theme">
+            <i class="ri-contrast-2-line" aria-hidden="true"></i>
+          </button>
+          <button id="menuToggle" class="p-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10" aria-label="Open menu">
+            <i class="ri-menu-5-line text-xl" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute right-0 top-0 h-full w-80 max-w-[85%] bg-white dark:bg-[#181818] border-l border-gray-200 dark:border-gray-700 p-6 shadow-2xl">
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-hover rounded-lg flex items-center justify-center">
+              <i class="ri-brush-ai-fill text-white text-lg"></i>
+            </div>
+            <div class="font-bold text-lg">Wypal</div>
+          </div>
+          <button id="menuClose" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Close menu">
+            <i class="ri-close-line text-xl"></i>
+          </button>
+        </div>
+
+        <nav class="space-y-1 text-sm">
+          <a href="../" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Home</a>
+          <a href="/how-it-works" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">How It Works</a>
+          <a href="/features" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Features</a>
+          <a href="/examples" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Examples</a>
+          <a href="/faq" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">FAQ</a>
+          <a href="/contact" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+        </nav>
+
+        <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <div class="text-xs text-gray-600 dark:text-gray-400 mb-3 font-semibold uppercase tracking-wide">Theme</div>
+          <div class="grid grid-cols-3 gap-2">
+            <button class="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-xs" data-theme="light">Light</button>
+            <button class="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-xs" data-theme="dark">Dark</button>
+            <button class="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-xs" data-theme="system">System</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative py-16 overflow-hidden">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-hover shadow-xl mb-6">
+          <i class="ri-file-shield-2-line text-white text-3xl"></i>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent dark:from-white dark:to-gray-300">
+          Terms of Use
+        </h1>
+        <p class="text-lg text-text-secondary">
+          Please read these terms carefully before using Wypal
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terms Content -->
+  <main class="mx-auto container-max px-4 sm:px-6 lg:px-8 pb-16">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-8 md:p-12 shadow-xl terms-content">
+        
+        <div class="flex items-center gap-3 mb-8 p-4 rounded-xl bg-orange-50 dark:bg-orange-900/20 border border-primary/20">
+          <i class="ri-information-line text-2xl text-primary"></i>
+          <p class="text-sm"><strong>Last Updated:</strong> November 16, 2025</p>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-check-double-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3">1. Acceptance of Terms</h2>
+              <p class="text-text-secondary leading-relaxed">By accessing or using Wypal, you agree to these Terms of Use. If you do not agree, do not use the service.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-service-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3 text-text-primary dark:text-white">2. Description of Service</h2>
+              <p class="text-text-secondary leading-relaxed">Wypal is a browser-based tool that cleans AI-generated text by removing formatting artifacts and normalizing typography. Processing occurs locally in your browser.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-user-settings-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3 text-text-primary dark:text-white">3. Your Responsibilities</h2>
+              <ul class="text-text-secondary leading-relaxed">
+                <li>Use Wypal in compliance with applicable laws.</li>
+                <li>Do not upload or submit content that infringes others' rights.</li>
+                <li>Do not attempt to disrupt or abuse the service.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-forbid-2-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3 text-text-primary dark:text-white">4. Prohibited Uses</h2>
+              <ul class="text-text-secondary leading-relaxed">
+                <li>Reverse engineering, scraping, or automated misuse.</li>
+                <li>Submitting harmful, illegal, or malicious content.</li>
+                <li>Interfering with security or network operations.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-copyleft-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3 text-text-primary dark:text-white">5. Intellectual Property</h2>
+              <p class="text-text-secondary leading-relaxed">Wypal's name, branding, and site assets are protected. You retain all rights to your own text content.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-alert-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3 text-text-primary dark:text-white">6. Disclaimers</h2>
+              <p class="text-text-secondary leading-relaxed">Wypal is provided "as is" without warranties of any kind. We do not guarantee specific results, uninterrupted availability, or error-free operation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-shield-check-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3 text-text-primary dark:text-white">7. Limitation of Liability</h2>
+              <p class="text-text-secondary leading-relaxed">To the fullest extent permitted by law, Wypal and its contributors will not be liable for any indirect, incidental, special, consequential, or punitive damages.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-refresh-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3 text-text-primary dark:text-white">8. Changes to the Service</h2>
+              <p class="text-text-secondary leading-relaxed">We may modify or discontinue features at any time. We will aim to communicate significant changes on the site.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 mb-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-file-edit-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3 text-text-primary dark:text-white">9. Changes to Terms</h2>
+              <p class="text-text-secondary leading-relaxed">We may update these Terms from time to time. Continued use of the service after changes means you accept the updated Terms.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center flex-shrink-0">
+              <i class="ri-customer-service-2-line text-white text-xl"></i>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-bold mb-3 text-text-primary dark:text-white">10. Contact</h2>
+              <p class="text-text-secondary leading-relaxed">Questions about these Terms? <a href="/contact" class="text-primary hover:text-primary-hover underline font-semibold">Contact us</a>.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Actions Card -->
+      <div class="mt-8 bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 shadow-lg">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <i class="ri-question-answer-line text-2xl text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">Have questions?</h3>
+              <p class="text-sm text-text-secondary">We're here to help clarify anything</p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <a href="/faq" class="px-4 py-2.5 rounded-lg bg-bg-subtle dark:bg-[#1a1a1a] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10 text-sm transition-all flex items-center gap-2">
+              <i class="ri-question-line"></i>View FAQ
+            </a>
+            <a href="/contact" class="px-4 py-2.5 rounded-lg bg-gradient-to-r from-primary to-primary-hover text-white hover:shadow-lg text-sm transition-all flex items-center gap-2">
+              <i class="ri-mail-send-line"></i>Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-12 border-t border-border dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8 py-12">
+      
+      <!-- Share Section -->
+      <div class="mb-12 bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 md:p-8 shadow-lg">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-hover flex items-center justify-center shadow-md flex-shrink-0">
+              <i class="ri-share-forward-line text-white text-xl"></i>
+            </div>
+            <div>
+              <div class="text-xl font-extrabold mb-1">Share Wypal with your people</div>
+              <p class="text-sm text-text-secondary">Know someone battling messy AI text? Help them discover Wypal.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button class="share-btn px-4 py-2.5 rounded-lg bg-gradient-to-r from-primary to-primary-hover text-white hover:shadow-lg text-sm transition-all flex items-center gap-2" data-share="native">
+              <i class="ri-share-forward-line"></i>Share
+            </button>
+            <button class="share-btn px-4 py-2.5 rounded-lg bg-bg-subtle dark:bg-[#1a1a1a] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10 text-sm transition-all flex items-center gap-2" data-share="copy">
+              <i class="ri-link-m text-primary"></i>Copy Link
+            </button>
+            <a class="px-4 py-2.5 rounded-lg bg-bg-subtle dark:bg-[#1a1a1a] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10 text-sm transition-all flex items-center gap-2" target="_blank" rel="noopener" id="shareX">
+              <i class="ri-twitter-x-line"></i>X
+            </a>
+            <a class="px-4 py-2.5 rounded-lg bg-bg-subtle dark:bg-[#1a1a1a] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10 text-sm transition-all flex items-center gap-2" target="_blank" rel="noopener" id="shareWhatsApp">
+              <i class="ri-whatsapp-line"></i>WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-text-secondary">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-hover rounded-xl flex items-center justify-center shadow-md">
+            <i class="ri-brush-ai-fill text-white"></i>
+          </div>
+          <div class="font-medium">© 2025 Wypal</div>
+        </div>
+        <nav class="flex items-center gap-6">
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="/privacy-policy">
+            Privacy
+          </a>
+          <a class="hover:text-primary transition-colors flex items-center gap-1.5" href="/contact">
+            Contact
+          </a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/menu.js"></script>
+  <script src="../js/share.js"></script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Examples – Wypal</title>
+  <meta name="description" content="See multiple before/after examples: blog copy, emails, social posts – cleaned by Wypal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { 
+            'sans': ['Kumbh Sans', 'system-ui', 'sans-serif'] 
+          },
+          colors: {
+            primary: { 
+              DEFAULT: '#FF5722', 
+              hover: '#E64A19', 
+              light: '#FF8A65' 
+            },
+            bg: { 
+              primary: '#FFFFFF', 
+              subtle: '#FAFAFA' 
+            },
+            border: '#E0E0E0',
+            text: { 
+              primary: '#212121', 
+              secondary: '#616161' 
+            },
+            success: '#4CAF50',
+            warning: '#FFC107',
+            error: '#F44336'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { 
+      font-family: 'Kumbh Sans', system-ui, sans-serif; 
+      font-size: 14px;
+      font-weight: 400;
+    }
+      
+    .container-max { 
+      max-width: 1200px; 
+    }
+
+    /* Smooth transitions */
+    * {
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+    }
+
+    button, a {
+      font-weight: 500;
+    }
+  </style>
+  <script src="../js/theme.js"></script>
+</head>
+<body class="min-h-full bg-gradient-to-br from-bg-subtle via-white to-orange-50 dark:from-[#121212] dark:via-[#0a0a0a] dark:to-[#1a1410] text-text-primary dark:text-[#FAFAFA] overflow-x-hidden">
+   
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#181818]/95 border-b border-border dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="../" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-hover rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+            <i class="ri-brush-ai-fill text-white text-xl" aria-hidden="true"></i>
+          </div>
+          <div class="leading-tight">
+            <div class="text-lg font-extrabold bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">Wypal</div>
+            <div class="text-xs text-text-secondary font-medium">Plain. Clean. Clear.</div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/how-it-works" class="hover:text-primary transition-colors">How It Works</a>
+          <a href="/features" class="hover:text-primary transition-colors">Features</a>
+          <a href="/examples" class="text-primary font-semibold">Examples</a>
+          <a href="/faq" class="hover:text-primary transition-colors">FAQ</a>
+          <a href="/contact" class="hover:text-primary transition-colors">Contact</a>
+
+          <!-- Theme Switcher -->
+          <div class="relative">
+            <button id="themeButton" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10">
+              <i class="ri-sun-line hidden" id="iconLight" aria-hidden="true"></i>
+              <i class="ri-moon-line hidden" id="iconDark" aria-hidden="true"></i>
+              <i class="ri-computer-line hidden" id="iconSystem" aria-hidden="true"></i>
+              <span id="themeLabel" class="text-sm">Theme</span>
+              <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </button>
+            <div id="themeMenu" class="absolute right-0 mt-2 w-40 bg-white dark:bg-[#242424] rounded-lg shadow-xl border border-border dark:border-white/10 hidden overflow-hidden">
+              <button data-theme="light" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">Light</button>
+              <button data-theme="dark" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">Dark</button>
+              <button data-theme="system" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">System</button>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center gap-2">
+          <button id="mobileTheme" class="p-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10" aria-label="Toggle theme">
+            <i class="ri-contrast-2-line" aria-hidden="true"></i>
+          </button>
+          <button id="menuToggle" class="p-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10" aria-label="Open menu">
+            <i class="ri-menu-5-line text-xl" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute right-0 top-0 h-full w-80 max-w-[85%] bg-white dark:bg-[#181818] border-l border-gray-200 dark:border-gray-700 p-6 shadow-2xl">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-hover rounded-lg flex items-center justify-center">
+              <i class="ri-brush-ai-fill text-white text-lg"></i>
+            </div>
+            <div class="font-bold text-gray-900 dark:text-white">Wypal</div>
+          </div>
+          <button id="menuClose" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white" aria-label="Close menu">
+            <i class="ri-close-line text-xl"></i>
+          </button>
+        </div>
+
+        <nav class="mt-6 space-y-1 text-sm text-gray-900 dark:text-white">
+          <a href="../" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Home</a>
+          <a href="/how-it-works" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">How It Works</a>
+          <a href="/features" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Features</a>
+          <a href="/examples" class="block px-3 py-2 rounded-lg bg-primary/10 font-semibold">Examples</a>
+          <a href="/faq" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">FAQ</a>
+          <a href="/contact" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+        </nav>
+
+        <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
+          <div class="text-xs text-gray-600 dark:text-gray-400 mb-2 font-medium">Theme</div>
+          <div class="grid grid-cols-3 gap-2">
+            <button class="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-xs text-gray-900 dark:text-white" data-theme="light">Light</button>
+            <button class="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-xs text-gray-900 dark:text-white" data-theme="dark">Dark</button>
+            <button class="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-xs text-gray-900 dark:text-white" data-theme="system">System</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-white dark:bg-[#181818] border-b border-border dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8 py-10">
+      <h1 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">Before & After Examples</h1>
+      <p class="mt-3 text-text-secondary max-w-2xl">See how Wypal removes clutter while keeping your meaning intact.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="mx-auto container-max px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    
+    <!-- Business Email -->
+    <section>
+      <h2 class="text-xl font-extrabold mb-4 flex items-center gap-2">
+        <i class="ri-mail-line text-primary"></i>
+        Business Email
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-6 hover:shadow-lg transition-shadow">
+          <div class="font-semibold mb-3 flex items-center gap-2">
+            <i class="ri-close-circle-line text-error"></i> Before
+          </div>
+          <pre class="text-sm text-text-secondary whitespace-pre-wrap leading-relaxed">###Hi Team,
+
+**I hope this email finds you well!** I just wanted to reach out and touch base regarding the upcoming project deadline. 
+
+> It's worth mentioning that we need to discuss a few key points.
+
+**Here are the main items:**
+- Budget allocation
+- Timeline adjustments  
+- **Resource requirements**
+
+**Looking forward** to hearing from you at your earliest convenience!
+
+Best regards</pre>
+        </div>
+        <div class="bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-6 hover:shadow-lg transition-shadow">
+          <div class="font-semibold mb-3 flex items-center gap-2">
+            <i class="ri-check-line text-success"></i> After
+          </div>
+          <pre class="text-sm text-text-secondary whitespace-pre-wrap leading-relaxed">Hi Team,
+
+I hope this email finds you well! I just wanted to reach out and touch base regarding the upcoming project deadline. 
+
+It's worth mentioning that we need to discuss a few key points.
+
+Here are the main items:
+Budget allocation
+Timeline adjustments  
+Resource requirements
+
+Looking forward to hearing from you at your earliest convenience!
+
+Best regards</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Post -->
+    <section>
+      <h2 class="text-xl font-extrabold mb-4 flex items-center gap-2">
+        <i class="ri-chat-3-line text-primary"></i>
+        Social Media Post
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-6 hover:shadow-lg transition-shadow">
+          <div class="font-semibold mb-3 flex items-center gap-2">
+            <i class="ri-close-circle-line text-error"></i> Before
+          </div>
+          <pre class="text-sm text-text-secondary whitespace-pre-wrap leading-relaxed">🎉 **EXCITING NEWS EVERYONE!!!** 🎉
+
+I'm **absolutely thrilled** to announce that...
+
+> It goes without saying that this has been an incredible journey! 
+
+**Here's what you need to know:**
+- New product launch
+- **Special discount** available
+- Limited time offer!!!
+
+**Don't miss out** on this **amazing opportunity**! Click the link in bio! 🔥🔥🔥</pre>
+        </div>
+        <div class="bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-6 hover:shadow-lg transition-shadow">
+          <div class="font-semibold mb-3 flex items-center gap-2">
+            <i class="ri-check-line text-success"></i> After
+          </div>
+          <pre class="text-sm text-text-secondary whitespace-pre-wrap leading-relaxed">Exciting news everyone!
+
+I'm absolutely thrilled to announce that...
+
+It goes without saying that this has been an incredible journey! 
+
+Here's what you need to know:
+New product launch
+Special discount available
+Limited time offer!
+
+Don't miss out on this amazing opportunity! Click the link in bio!</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Article -->
+    <section>
+      <h2 class="text-xl font-extrabold mb-4 flex items-center gap-2">
+        <i class="ri-article-line text-primary"></i>
+        Blog Article
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-6 hover:shadow-lg transition-shadow">
+          <div class="font-semibold mb-3 flex items-center gap-2">
+            <i class="ri-close-circle-line text-error"></i> Before
+          </div>
+          <pre class="text-sm text-text-secondary whitespace-pre-wrap leading-relaxed">## **The Ultimate Guide to Productivity**
+
+**Let me be completely honest with you** - productivity isn't just about working harder.
+
+> It's worth noting that many successful people...
+
+**Here's the thing:** You need to understand that effective time management involves:
+
+- **Setting clear goals** (this is crucial!)
+- *Eliminating distractions*
+- **Taking regular breaks**
+
+**At the end of the day**, it really comes down to finding what works best for you personally.</pre>
+        </div>
+        <div class="bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-6 hover:shadow-lg transition-shadow">
+          <div class="font-semibold mb-3 flex items-center gap-2">
+            <i class="ri-check-line text-success"></i> After
+          </div>
+          <pre class="text-sm text-text-secondary whitespace-pre-wrap leading-relaxed">The Ultimate Guide to Productivity
+
+Let me be completely honest with you - productivity isn't just about working harder.
+
+It's worth noting that many successful people...
+
+Here's the thing: You need to understand that effective time management involves:
+
+Setting clear goals (this is crucial!)
+Eliminating distractions
+Taking regular breaks
+
+At the end of the day, it really comes down to finding what works best for you personally.</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meeting Notes -->
+    <section>
+      <h2 class="text-xl font-extrabold mb-4 flex items-center gap-2">
+        <i class="ri-file-text-line text-primary"></i>
+        Meeting Notes
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-6 hover:shadow-lg transition-shadow">
+          <div class="font-semibold mb-3 flex items-center gap-2">
+            <i class="ri-close-circle-line text-error"></i> Before
+          </div>
+          <pre class="text-sm text-text-secondary whitespace-pre-wrap leading-relaxed">**Meeting Summary - Q4 Planning**
+
+**First and foremost**, we discussed the quarterly objectives.
+
+> It should be noted that the team agreed on...
+
+**Key Action Items:**
+- **Review** the budget proposal
+- **Furthermore**, schedule follow-up meetings
+- **Make sure to** update stakeholders
+
+**Moving forward**, we'll need to ensure that everyone is aligned on these priorities.</pre>
+        </div>
+        <div class="bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-6 hover:shadow-lg transition-shadow">
+          <div class="font-semibold mb-3 flex items-center gap-2">
+            <i class="ri-check-line text-success"></i> After
+          </div>
+          <pre class="text-sm text-text-secondary whitespace-pre-wrap leading-relaxed">Meeting Summary - Q4 Planning
+
+First and foremost, we discussed the quarterly objectives.
+
+It should be noted that the team agreed on...
+
+Key Action Items:
+Review the budget proposal
+Furthermore, schedule follow-up meetings
+Make sure to update stakeholders
+
+Moving forward, we'll need to ensure that everyone is aligned on these priorities.</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-8 hover:shadow-lg transition-shadow">
+      <h3 class="text-lg font-extrabold mb-6 text-center">Overall Impact</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="space-y-2">
+          <div class="text-3xl font-extrabold text-error">30–50%</div>
+          <div class="text-xs text-text-secondary">Character Reduction</div>
+        </div>
+        <div class="space-y-2">
+          <div class="text-3xl font-extrabold" style="color:#9C27B0">80–95%</div>
+          <div class="text-xs text-text-secondary">AI Confidence</div>
+        </div>
+        <div class="space-y-2">
+          <div class="text-3xl font-extrabold text-success">+70–90%</div>
+          <div class="text-xs text-text-secondary">Readability Gain</div>
+        </div>
+        <div class="space-y-2">
+          <div class="text-3xl font-extrabold" style="color:#FF9800">~10–20ms</div>
+          <div class="text-xs text-text-secondary">Processing Time</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <a href="../" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-primary-hover text-white hover:shadow-lg transition-all hover:scale-105">
+        <i class="ri-magic-line"></i> Try it with your text
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 border-t border-border dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8 py-10">
+      <div class="mb-10 bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-xl p-6">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="text-lg font-extrabold">Share Wypal with your people</div>
+            <p class="text-sm text-text-secondary mt-1">Know a writer or student? Help them clean AI text with one click.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button class="share-btn px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-primary-hover text-white hover:shadow-lg transition-all text-sm" data-share="native">
+              <i class="ri-share-forward-line mr-1"></i> Share
+            </button>
+            <button class="share-btn px-4 py-2 rounded-lg bg-gray-100 dark:bg-[#242424] hover:bg-primary/10 text-sm border border-border dark:border-white/10" data-share="copy">
+              <i class="ri-link-m text-primary mr-1"></i> Copy Link
+            </button>
+            <a class="px-4 py-2 rounded-lg bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 hover:bg-primary/10 text-sm" target="_blank" rel="noopener" id="shareX">
+              <i class="ri-twitter-x-line mr-1"></i> Twitter
+            </a>
+            <a class="px-4 py-2 rounded-lg bg-gray-100 dark:bg-[#242424] hover:bg-primary/10 text-sm border border-border dark:border-white/10" target="_blank" rel="noopener" id="shareWhatsApp">
+              <i class="ri-whatsapp-line mr-1"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-sm text-text-secondary">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-hover rounded-lg flex items-center justify-center">
+            <i class="ri-brush-ai-fill text-white"></i>
+          </div>
+          <div>© 2025 Wypal</div>
+        </div>
+        <nav class="flex items-center gap-4">
+          <a class="hover:text-primary transition-colors" href="/features">Features</a>
+          <a class="hover:text-primary transition-colors" href="/contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/menu.js"></script>
+  <script src="../js/share.js"></script>
+</body>
+</html>

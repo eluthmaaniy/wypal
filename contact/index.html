@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Wypal</title>
+  <meta name="description" content="Get in touch with the Wypal team for support, feedback, or questions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { 
+            'sans': ['Kumbh Sans', 'system-ui', 'sans-serif'] 
+          },
+          colors: {
+            primary: { 
+              DEFAULT: '#FF5722', 
+              hover: '#E64A19', 
+              light: '#FF8A65' 
+            },
+            bg: { 
+              primary: '#FFFFFF', 
+              subtle: '#FAFAFA' 
+            },
+            border: '#E0E0E0',
+            text: { 
+              primary: '#212121', 
+              secondary: '#616161' 
+            },
+            success: '#4CAF50',
+            warning: '#FFC107',
+            error: '#F44336'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { 
+      font-family: 'Kumbh Sans', system-ui, sans-serif; 
+      font-size: 14px;
+      font-weight: 400;
+    }
+      
+    .container-max { 
+      max-width: 1200px; 
+    }
+
+    /* Smooth transitions */
+    * {
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+    }
+
+    button, a {
+      font-weight: 500;
+    }
+
+    /* Input focus states */
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #FF5722;
+      box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+    }
+  </style>
+   
+  <script src="../js/theme.js"></script>
+</head>
+<body class="min-h-full bg-gradient-to-br from-bg-subtle via-white to-orange-50 dark:from-[#121212] dark:via-[#0a0a0a] dark:to-[#1a1410] text-text-primary dark:text-[#FAFAFA] overflow-x-hidden">
+   
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#181818]/95 border-b border-border dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="../" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-hover rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+            <i class="ri-brush-ai-fill text-white text-xl" aria-hidden="true"></i>
+          </div>
+          <div class="leading-tight">
+            <div class="text-lg font-extrabold bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">Wypal</div>
+            <div class="text-xs text-text-secondary font-medium">Plain. Clean. Clear.</div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/how-it-works" class="hover:text-primary transition-colors">How It Works</a>
+          <a href="/features" class="hover:text-primary transition-colors">Features</a>
+          <a href="/examples" class="hover:text-primary transition-colors">Examples</a>
+          <a href="/faq" class="hover:text-primary transition-colors">FAQ</a>
+          <a href="/contact" class="text-primary font-semibold">Contact</a>
+
+          <!-- Theme Switcher -->
+          <div class="relative">
+            <button id="themeButton" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10">
+              <i class="ri-sun-line hidden" id="iconLight" aria-hidden="true"></i>
+              <i class="ri-moon-line hidden" id="iconDark" aria-hidden="true"></i>
+              <i class="ri-computer-line hidden" id="iconSystem" aria-hidden="true"></i>
+              <span id="themeLabel" class="text-sm">Theme</span>
+              <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </button>
+            <div id="themeMenu" class="absolute right-0 mt-2 w-40 bg-white dark:bg-[#242424] rounded-lg shadow-xl border border-border dark:border-white/10 hidden overflow-hidden">
+              <button data-theme="light" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">Light</button>
+              <button data-theme="dark" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">Dark</button>
+              <button data-theme="system" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">System</button>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center gap-2">
+          <button id="mobileTheme" class="p-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10" aria-label="Toggle theme">
+            <i class="ri-contrast-2-line" aria-hidden="true"></i>
+          </button>
+          <button id="menuToggle" class="p-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10" aria-label="Open menu">
+            <i class="ri-menu-5-line text-xl" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute right-0 top-0 h-full w-80 max-w-[85%] bg-white dark:bg-[#181818] border-l border-gray-200 dark:border-gray-700 p-6 shadow-2xl">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-hover rounded-lg flex items-center justify-center">
+              <i class="ri-brush-ai-fill text-white text-lg"></i>
+            </div>
+            <div class="font-bold text-gray-900 dark:text-white">Wypal</div>
+          </div>
+          <button id="menuClose" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-900 dark:text-white" aria-label="Close menu">
+            <i class="ri-close-line text-xl"></i>
+          </button>
+        </div>
+        <nav class="mt-6 space-y-1 text-sm text-gray-900 dark:text-white">
+          <a href="../" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Home</a>
+          <a href="/how-it-works" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">How It Works</a>
+          <a href="/features" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Features</a>
+          <a href="/examples" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Examples</a>
+          <a href="/faq" class="block px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">FAQ</a>
+          <a href="/contact" class="block px-3 py-2 rounded-lg bg-primary/10 font-semibold">Contact</a>
+        </nav>
+        <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
+          <div class="text-xs text-gray-600 dark:text-gray-400 mb-2 font-medium">Theme</div>
+          <div class="grid grid-cols-3 gap-2">
+            <button class="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-xs text-gray-900 dark:text-white" data-theme="light">Light</button>
+            <button class="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-xs text-gray-900 dark:text-white" data-theme="dark">Dark</button>
+            <button class="px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 text-xs text-gray-900 dark:text-white" data-theme="system">System</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-white/80 dark:bg-[#181818]/80 border-b border-border/30 dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center">
+          <i class="ri-mail-send-line text-primary text-2xl"></i>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold">Get in Touch</h1>
+      </div>
+      <p class="text-text-secondary max-w-2xl">Questions, feedback, or ideas? We'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="mx-auto container-max px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Contact Form -->
+      <div class="lg:col-span-2">
+        <div class="bg-white dark:bg-[#181818] border border-border/30 dark:border-white/10 rounded-2xl p-6 shadow-lg">
+          <div class="font-semibold mb-6 flex items-center gap-2 text-base">
+            <i class="ri-edit-line text-primary"></i> 
+            Send us a message
+          </div>
+
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-5" novalidate>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="firstName" class="block text-xs font-medium text-text-secondary mb-1">First Name *</label>
+                <input id="firstName" name="firstName" required class="w-full px-4 py-2.5 rounded-lg border border-border/50 dark:border-white/10 bg-white dark:bg-[#151515] focus:border-primary transition-all" placeholder="Uthman" />
+              </div>
+              <div>
+                <label for="lastName" class="block text-xs font-medium text-text-secondary mb-1">Last Name *</label>
+                <input id="lastName" name="lastName" required class="w-full px-4 py-2.5 rounded-lg border border-border/50 dark:border-white/10 bg-white dark:bg-[#151515] focus:border-primary transition-all" placeholder="Abdulmajeed" />
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="block text-xs font-medium text-text-secondary mb-1">Email *</label>
+              <input id="email" name="email" type="email" required class="w-full px-4 py-2.5 rounded-lg border border-border/50 dark:border-white/10 bg-white dark:bg-[#151515] focus:border-primary transition-all" placeholder="eluthmaaniy@gmail.com" />
+            </div>
+
+            <div>
+              <label for="subject" class="block text-xs font-medium text-text-secondary mb-1">Subject *</label>
+              <select id="subject" name="subject" required class="w-full px-4 py-2.5 rounded-lg border border-border/50 dark:border-white/10 bg-white dark:bg-[#151515] focus:border-primary transition-all">
+                <option value="">Select a subject</option>
+                <option>General Inquiry</option>
+                <option>Support Request</option>
+                <option>Bug Report</option>
+                <option>Feature Request</option>
+                <option>Feedback</option>
+                <option>Business Partnership</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-medium text-text-secondary mb-1">Message *</label>
+              <textarea id="message" name="message" rows="6" required class="w-full px-4 py-2.5 rounded-lg border border-border/50 dark:border-white/10 bg-white dark:bg-[#151515] focus:border-primary transition-all resize-none" placeholder="Tell us how we can help..."></textarea>
+            </div>
+
+            <!-- Honeypot -->
+            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+            
+            <!-- Hidden subject -->
+            <input type="hidden" name="_subject" value="Wypal Contact Form Submission" />
+
+            <label class="inline-flex items-start gap-2 text-sm text-text-secondary cursor-pointer">
+              <input id="agree" type="checkbox" required class="mt-1 rounded" />
+              <span>I agree to the <a class="underline hover:text-primary transition-colors" href="/privacy-policy">Privacy Policy</a>.</span>
+            </label>
+
+            <button id="submitBtn" type="submit" class="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-primary to-primary-hover text-white hover:shadow-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+              <i class="ri-send-plane-fill mr-2"></i>Send Message
+            </button>
+          </form>
+
+          <!-- Success Message -->
+          <div id="formSuccess" class="hidden mt-4 p-4 rounded-lg border border-success/30 bg-success/10" aria-live="polite">
+            <div class="flex items-start gap-3">
+              <i class="ri-checkbox-circle-fill text-success text-xl"></i>
+              <div>
+                <div class="font-semibold text-success">Message sent successfully!</div>
+                <div class="text-sm text-text-secondary mt-1">We'll get back to you within 24-48 hours.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Error Message -->
+          <div id="formError" class="hidden mt-4 p-4 rounded-lg border border-error/30 bg-error/10" aria-live="polite">
+            <div class="flex items-start gap-3">
+              <i class="ri-error-warning-fill text-error text-xl"></i>
+              <div>
+                <div class="font-semibold text-error">Something went wrong.</div>
+                <div class="text-sm text-text-secondary mt-1">Please try again or email support@wypal.app.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Contact Sidebar -->
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-[#181818] border border-border/30 dark:border-white/10 rounded-2xl p-6 shadow-lg">
+          <div class="font-semibold mb-4 flex items-center gap-2">
+            <i class="ri-customer-service-2-line text-primary"></i>
+            Quick Contact
+          </div>
+          <div class="space-y-4 text-sm">
+            <div class="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10">
+              <i class="ri-mail-line text-primary text-lg"></i>
+              <div>
+                <div class="font-medium text-text-primary">Email</div>
+                <a href="mailto:support@wypal.app" class="text-text-secondary hover:text-primary transition-colors">support@wypal.app</a>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10">
+              <i class="ri-time-line text-primary text-lg"></i>
+              <div>
+                <div class="font-medium text-text-primary">Response Time</div>
+                <div class="text-text-secondary">Within 24-48 hours</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Link -->
+        <div class="bg-white dark:bg-[#181818] border border-border/30 dark:border-white/10 rounded-2xl p-6 shadow-lg">
+          <div class="font-semibold mb-3 flex items-center gap-2">
+            <i class="ri-question-line text-primary"></i>
+            Need Quick Help?
+          </div>
+          <p class="text-sm text-text-secondary mb-4">Check our FAQ for instant answers to common questions.</p>
+          <a href="/faq" class="inline-flex items-center gap-2 text-sm text-primary hover:text-primary-hover font-medium transition-colors">
+            Visit FAQ <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 border-t border-border/30 dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8 py-10">
+     <!-- Share Section -->
+      <div class="mb-10 bg-white dark:bg-[#242424] border border-border dark:border-white/10 rounded-2xl p-6 shadow-lg">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="text-lg font-extrabold bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">
+              Share Wypal with your network
+            </div>
+            <p class="text-sm text-text-secondary mt-1">
+              Help others clean their AI text. Share Wypal and spread the word!
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button class="share-btn px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-primary-hover text-white hover:shadow-lg text-sm transition-all" data-share="native">
+              <i class="ri-share-forward-line mr-1"></i> Share
+            </button>
+            <button class="share-btn px-4 py-2 rounded-lg bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 hover:bg-primary/10 text-sm" data-share="copy">
+              <i class="ri-link-m text-primary mr-1"></i> Copy Link
+            </button>
+            <a class="px-4 py-2 rounded-lg bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 hover:bg-primary/10 text-sm" target="_blank" rel="noopener" id="shareX">
+              <i class="ri-twitter-x-line mr-1"></i> Twitter
+            </a>
+            <a class="px-4 py-2 rounded-lg bg-white dark:bg-[#1a1a1a] border border-border dark:border-white/10 hover:bg-primary/10 text-sm" target="_blank" rel="noopener" id="shareWhatsApp">
+              <i class="ri-whatsapp-line mr-1"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- Footer Bottom -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-secondary">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg flex items-center justify-center">
+            <i class="ri-brush-ai-fill text-primary"></i>
+          </div>
+          <div>© 2025 Wypal</div>
+        </div>
+        <nav class="flex items-center gap-4">
+          <a class="hover:text-primary transition-colors" href="/privacy-policy">Privacy</a>
+          <a class="hover:text-primary transition-colors" href="/terms-of-use">Terms</a>
+          <a class="hover:text-primary transition-colors" href="/features">Features</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/menu.js"></script>
+  <script src="../js/share.js"></script> 
+  <script src="../js/formspree.js"></script>
+</body>
+</html>

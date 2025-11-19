@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Features — Wypal</title>
+  <meta name="description" content="Explore Wypal: live preview, trustworthy diff, batch mode, robust undo/redo, typography fixes, AI artifact removal, privacy-first.">
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet">
+    
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { 
+            'sans': ['Kumbh Sans', 'system-ui', 'sans-serif'] 
+          },
+          colors: {
+            primary: { 
+              DEFAULT: '#FF5722', 
+              hover: '#E64A19', 
+              light: '#FF8A65' 
+            },
+            bg: { 
+              primary: '#FFFFFF', 
+              subtle: '#FAFAFA' 
+            },
+            border: '#E0E0E0',
+            text: { 
+              primary: '#212121', 
+              secondary: '#616161' 
+            },
+            success: '#4CAF50',
+            warning: '#FFC107',
+            error: '#F44336'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { 
+      font-family: 'Kumbh Sans', system-ui, sans-serif; 
+      font-size: 14px;
+      font-weight: 400;
+    }
+      
+    .container-max { 
+      max-width: 1200px; 
+    }
+
+    /* Smooth transitions */
+    * {
+      transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    h1, h2, h3 {
+      font-weight: 800;
+    }
+
+    button, a {
+      font-weight: 500;
+    }
+
+    /* Feature card hover effects */
+    .feature-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .dark .feature-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+   
+  <script src="../js/theme.js"></script>
+</head>
+<body class="min-h-full bg-gradient-to-br from-bg-subtle via-white to-orange-50 dark:from-[#121212] dark:via-[#0a0a0a] dark:to-[#1a1410] text-text-primary dark:text-[#FAFAFA] overflow-x-hidden">
+   
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#181818]/95 border-b border-border dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8">
+      <div class="h-16 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="../" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 bg-gradient-to-br from-primary to-primary-hover rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+            <i class="ri-brush-ai-fill text-white text-xl" aria-hidden="true"></i>
+          </div>
+          <div class="leading-tight">
+            <div class="text-lg font-extrabold bg-gradient-to-r from-primary to-primary-hover bg-clip-text text-transparent">Wypal</div>
+            <div class="text-xs text-text-secondary font-medium">Plain. Clean. Clear.</div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="/how-it-works" class="hover:text-primary transition-colors">How It Works</a>
+          <a href="/features" class="text-primary font-semibold">Features</a>
+          <a href="/examples" class="hover:text-primary transition-colors">Examples</a>
+          <a href="/faq" class="hover:text-primary transition-colors">FAQ</a>
+          <a href="/contact" class="hover:text-primary transition-colors">Contact</a>
+
+          <!-- Theme Switcher -->
+          <div class="relative">
+            <button id="themeButton" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10">
+              <i class="ri-sun-line hidden" id="iconLight" aria-hidden="true"></i>
+              <i class="ri-moon-line hidden" id="iconDark" aria-hidden="true"></i>
+              <i class="ri-computer-line hidden" id="iconSystem" aria-hidden="true"></i>
+              <span id="themeLabel" class="text-sm">Theme</span>
+              <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </button>
+            <div id="themeMenu" class="absolute right-0 mt-2 w-40 bg-white dark:bg-[#242424] rounded-lg shadow-xl border border-border dark:border-white/10 hidden overflow-hidden">
+              <button data-theme="light" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">Light</button>
+              <button data-theme="dark" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">Dark</button>
+              <button data-theme="system" class="w-full text-left px-3 py-2 text-sm hover:bg-primary/10">System</button>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center gap-2">
+          <button id="mobileTheme" class="p-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10" aria-label="Toggle theme">
+            <i class="ri-contrast-2-line" aria-hidden="true"></i>
+          </button>
+          <button id="menuToggle" class="p-2 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-gray-100 dark:hover:bg-[#2a2a2a] border border-border dark:border-white/10" aria-label="Open menu">
+            <i class="ri-menu-5-line text-xl" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="absolute right-0 top-0 h-full w-80 max-w-[85%] bg-white dark:bg-[#181818] border-l border-gray-200 dark:border-gray-700 p-6 shadow-2xl">
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 bg-gradient-to-br from-primary to-primary-hover rounded-lg flex items-center justify-center">
+              <i class="ri-brush-ai-fill text-white text-lg"></i>
+            </div>
+            <div class="font-bold text-base">Wypal</div>
+          </div>
+          <button id="menuClose" class="p-2 rounded-lg hover:bg-primary/10" aria-label="Close menu">
+            <i class="ri-close-line text-xl"></i>
+          </button>
+        </div>
+
+        <nav class="space-y-1 text-sm">
+          <a href="../" class="block px-4 py-2.5 rounded-lg hover:bg-primary/10 font-medium">Home</a>
+          <a href="/how-it-works" class="block px-4 py-2.5 rounded-lg hover:bg-primary/10 font-medium">How It Works</a>
+          <a href="/features" class="block px-4 py-2.5 rounded-lg bg-primary/10 text-primary font-semibold">Features</a>
+          <a href="/examples" class="block px-4 py-2.5 rounded-lg hover:bg-primary/10 font-medium">Examples</a>
+          <a href="/faq" class="block px-4 py-2.5 rounded-lg hover:bg-primary/10 font-medium">FAQ</a>
+          <a href="/contact" class="block px-4 py-2.5 rounded-lg hover:bg-primary/10 font-medium">Contact</a>
+        </nav>
+
+        <div class="mt-6 border-t border-border/30 dark:border-white/10 pt-4">
+          <div class="text-xs text-text-secondary mb-3 font-semibold uppercase tracking-wide">Theme</div>
+          <div class="grid grid-cols-3 gap-2">
+            <button class="px-3 py-2.5 bg-bg-subtle dark:bg-[#242424] rounded-lg hover:bg-primary/10 text-xs font-medium" data-theme="light">Light</button>
+            <button class="px-3 py-2.5 bg-bg-subtle dark:bg-[#242424] rounded-lg hover:bg-primary/10 text-xs font-medium" data-theme="dark">Dark</button>
+            <button class="px-3 py-2.5 bg-bg-subtle dark:bg-[#242424] rounded-lg hover:bg-primary/10 text-xs font-medium" data-theme="system">System</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-white/95 dark:bg-[#181818]/95 border-b border-border/30 dark:border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Powerful features, simple experience</h1>
+      <p class="mt-4 text-base text-text-secondary max-w-2xl">Everything you need to turn AI-heavy output into clean, trustworthy text — fast.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="mx-auto container-max px-4 sm:px-6 lg:px-8 py-12 space-y-14">
+    
+    <!-- Live Controls Section -->
+    <section>
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">Live controls you can trust</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="feature-card bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-border/50 dark:border-white/10">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary flex items-center justify-center mb-4">
+            <i class="ri-flashlight-line text-xl"></i>
+          </div>
+          <div class="font-semibold text-base mb-2">Real-time Preview</div>
+          <p class="text-sm text-text-secondary leading-relaxed">Toggle options and see changes instantly — no guessing or irreversible steps.</p>
+        </div>
+        <div class="feature-card bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-border/50 dark:border-white/10">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary flex items-center justify-center mb-4">
+            <i class="ri-history-line text-xl"></i>
+          </div>
+          <div class="font-semibold text-base mb-2">Undo/Redo + Mobile Toolbar</div>
+          <p class="text-sm text-text-secondary leading-relaxed">Tap-friendly history controls so you can explore safely on any device.</p>
+        </div>
+        <div class="feature-card bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-border/50 dark:border-white/10">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary flex items-center justify-center mb-4">
+            <i class="ri-scissors-cut-fill text-xl"></i>
+          </div>
+          <div class="font-semibold text-base mb-2">Before/After Diff</div>
+          <p class="text-sm text-text-secondary leading-relaxed">Compare the original and cleaned versions side-by-side with precise highlights.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Efficiency Section -->
+    <section>
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">Clean more in less time</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="feature-card bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-border/50 dark:border-white/10">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary flex items-center justify-center mb-4">
+            <i class="ri-drag-drop-line text-xl"></i>
+          </div>
+          <div class="font-semibold text-base mb-2">Batch Mode</div>
+          <p class="text-sm text-text-secondary leading-relaxed">Upload multiple files (.txt/.md/.docx) at once and download clean outputs for each.</p>
+        </div>
+        <div class="feature-card bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-border/50 dark:border-white/10">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary flex items-center justify-center mb-4">
+            <i class="ri-text text-xl"></i>
+          </div>
+          <div class="font-semibold text-base mb-2">Typography Fixes</div>
+          <p class="text-sm text-text-secondary leading-relaxed">Normalize smart quotes, dashes, ellipses, and bullet characters for consistency.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section>
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-6">Privacy-first by design</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="feature-card bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-border/50 dark:border-white/10 text-center">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary flex items-center justify-center mb-4">
+            <i class="ri-shield-keyhole-line text-2xl"></i>
+          </div>
+          <div class="font-semibold text-base mb-2">100% Local</div>
+          <p class="text-sm text-text-secondary leading-relaxed">Your text never leaves your device. No accounts. No uploads.</p>
+        </div>
+        <div class="feature-card bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-border/50 dark:border-white/10 text-center">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary flex items-center justify-center mb-4">
+            <i class="ri-speed-up-line text-2xl"></i>
+          </div>
+          <div class="font-semibold text-base mb-2">Fast</div>
+          <p class="text-sm text-text-secondary leading-relaxed">Optimized processing delivers instant feedback as you type.</p>
+        </div>
+        <div class="feature-card bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-sm border border-border/50 dark:border-white/10 text-center">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary flex items-center justify-center mb-4">
+            <i class="ri-smartphone-line text-2xl"></i>
+          </div>
+          <div class="font-semibold text-base mb-2">Mobile-Ready</div>
+          <p class="text-sm text-text-secondary leading-relaxed">Collapsible options, touch-friendly controls, and responsive layout.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="text-center pt-4">
+      <a href="../" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-gradient-to-r from-primary to-primary-hover text-white hover:shadow-lg hover:scale-105 transition-all font-medium">
+        <i class="ri-magic-line text-lg"></i> Try Wypal now
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-20 border-t border-border/30 dark:border-white/10">
+    <div class="mx-auto container-max px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Share Section -->
+      <div class="mb-12 bg-white dark:bg-[#1a1a1a] rounded-xl p-6 md:p-8 shadow-sm border border-border/50 dark:border-white/10">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="text-lg font-extrabold mb-1">Share Wypal with your people</div>
+            <p class="text-sm text-text-secondary">Help a friend turn AI clutter into clarity — pass Wypal along.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button class="share-btn px-4 py-2.5 rounded-lg bg-gradient-to-r from-primary to-primary-hover text-white hover:shadow-md transition-all text-sm font-medium" data-share="native">
+              <i class="ri-share-forward-line mr-1"></i> Share
+            </button>
+            <button class="share-btn px-4 py-2.5 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-primary/10 text-sm font-medium border border-border dark:border-white/10" data-share="copy">
+              <i class="ri-link-m text-primary mr-1"></i> Copy Link
+            </button>
+            <a class="px-4 py-2.5 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-primary/10 text-sm font-medium border border-border dark:border-white/10" target="_blank" rel="noopener" id="shareX">
+              <i class="ri-twitter-x-line mr-1"></i> Twitter 
+            </a>
+            <a class="px-4 py-2.5 rounded-lg bg-bg-subtle dark:bg-[#242424] hover:bg-primary/10 text-sm font-medium border border-border dark:border-white/10" target="_blank" rel="noopener" id="shareWhatsApp">
+              <i class="ri-whatsapp-line mr-1"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-secondary">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg flex items-center justify-center">
+            <i class="ri-brush-ai-fill text-primary"></i>
+          </div>
+          <div>© 2025 Wypal</div>
+        </div>
+        <nav class="flex items-center gap-6">
+          <a class="hover:text-primary transition-colors" href="/privacy-policy">Privacy</a>
+          <a class="hover:text-primary transition-colors" href="/contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/menu.js"></script>
+  <script src="../js/share.js"></script>
+</body>
+</html>
